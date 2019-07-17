@@ -1,0 +1,19 @@
+{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/{url}",
+      "UpstreamHttpMethod": ["GET", "POST", "DELETE", "PUT"]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:8088"
+  }
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Autofac" Version="4.9.2" />
+        <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.4.0" />
+        <PackageReference Include="DotNetCore.NPOI" Version="1.2.1" />
+        <PackageReference Include="Quartz" Version="3.0.7" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Gzh.Template.Core.Repository\Gzh.Template.Core.Repository.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="RequestDTO\" />
+        <Folder Include="ResponseDTO\" />
+        <Folder Include="Jobs\" />
+    </ItemGroup>
+</Project>

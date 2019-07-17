@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Gzh.Template.Core.WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:Gzh.Template.Core.WebApi.Controllers.TestQuartzController.TestQuartz">
+            <summary>
+            Tests the quartz.
+            </summary>
+            <returns>The quartz.</returns>
+        </member>
+        <member name="M:Gzh.Template.Core.WebApi.Controllers.TestQuartzController.AddHelloJob(Gzh.Template.Core.Application.RequestDTO.ScheduleEntityDTO)">
+            <summary>
+            添加一个HelloJob的调度任务
+            </summary>
+            <returns>The hello job.</returns>
+            <param name="scheduleEntityDTO">Schedule entity dto.</param>
+        </member>
+        <member name="M:Gzh.Template.Core.WebApi.Controllers.TestQuartzController.RunHelloJob(Gzh.Template.Core.Repository.Domain.MysqlEntity.ScheduleEntity)">
+            <summary>
+            运行一个任务
+            </summary>
+            <returns>The hello job.</returns>
+            <param name="scheduleEntity">Schedule entity.</param>
+        </member>
+        <member name="M:Gzh.Template.Core.WebApi.Controllers.TestQuartzController.PauseHelloJob(Gzh.Template.Core.Repository.Domain.MysqlEntity.ScheduleEntity)">
+            <summary>
+            暂停任务
+            </summary>
+            <returns>The hello job.</returns>
+            <param name="scheduleEntity">Schedule entity.</param>
+        </member>
+        <member name="M:Gzh.Template.Core.WebApi.Controllers.TestQuartzController.DeleteHelloJob(Gzh.Template.Core.Repository.Domain.MysqlEntity.ScheduleEntity)">
+            <summary>
+            删除一个任务
+            </summary>
+            <returns>The hello job.</returns>
+            <param name="scheduleEntity">Schedule entity.</param>
+        </member>
+    </members>
+</doc>
