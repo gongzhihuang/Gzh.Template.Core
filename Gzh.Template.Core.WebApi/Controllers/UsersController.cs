@@ -16,7 +16,7 @@ namespace Gzh.Template.Core.WebApi.Controllers
     {
         private readonly IUserService _userService;
 
-        public UsersController(UserService userService)
+        public UsersController(IUserService userService)
         {
             _userService = userService;
         }

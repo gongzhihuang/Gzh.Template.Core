@@ -57,6 +57,13 @@ namespace Gzh.Template.Core.Repository.Interface
         void Add(T entity, string tableName = "");
 
         /// <summary>
+        /// 添加多个实体
+        /// </summary>
+        /// <param name="entities">Entities.</param>
+        /// <param name="tableName">Table name.</param>
+        void Adds(List<T> entities, string tableName = "");
+
+        /// <summary>
         /// 更新一个实体的所有属性
         /// </summary>
         /// <param name="entity"></param>

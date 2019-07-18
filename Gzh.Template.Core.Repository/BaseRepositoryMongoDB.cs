@@ -34,6 +34,17 @@ namespace Gzh.Template.Core.Repository
         }
 
         /// <summary>
+        /// 添加多个实体
+        /// </summary>
+        /// <param name="entities">Entities.</param>
+        /// <param name="tableName">Table name.</param>
+        public void Adds(List<T> entities, string tableName = "")
+        {
+            var collection = _context.GetCollection<T>(tableName);
+            collection.InsertMany(entities);
+        }
+
+        /// <summary>
         /// 删除一个实体
         /// </summary>
         /// <param name="entity"></param>

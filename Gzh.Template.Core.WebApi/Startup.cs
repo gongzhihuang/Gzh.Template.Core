@@ -21,6 +21,7 @@ using Microsoft.EntityFrameworkCore;
 using Gzh.Template.Core.Application.Jobs;
 using Quartz;
 using Quartz.Impl;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Gzh.Template.Core.WebApi
 {
@@ -40,6 +41,28 @@ namespace Gzh.Template.Core.WebApi
             services.AddSwaggerGen(option =>
             {
                 option.SwaggerDoc("v1", new Info { Title = "Gzh.Template.Core.WebApi", Version = "v1" });
+                option.SwaggerDoc("v2", new Info { Title = "Gzh.Template.Core.WebApi2", Version = "v2" });
+
+
+                option.DocInclusionPredicate((docName, apiDesc) =>
+                {
+                    if (!apiDesc.TryGetMethodInfo(out MethodInfo methodInfo))
+                    {
+                        return false;
+                    }
+                    var versions = methodInfo.DeclaringType
+                        .GetCustomAttributes(true)
+                        .OfType<ApiExplorerSettingsAttribute>()
+                        .Select(attr => attr.GroupName);
+
+                    if (docName.ToLower() == "v1" && versions.FirstOrDefault() == null)
+                    {
+                        return true;//无ApiExplorerSettings的将在v1中显示
+                    }
+                    return versions.Any(v => v.ToString() == docName);
+
+                });
+
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 option.IncludeXmlComments(xmlPath);
@@ -94,10 +117,14 @@ namespace Gzh.Template.Core.WebApi
             //跨域 开发环境，生产环境应该指定Origin
             app.UseCors(Options => { Options.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin(); });
             //swagger
-            app.UseSwagger();
+            app.UseSwagger(c =>
+            {
+                c.RouteTemplate = "/swagger/{documentName}/swagger.json";
+            });
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("./swagger/v1/swagger.json", "V1");
+                c.SwaggerEndpoint("./swagger/v2/swagger.json", "V2");
                 c.RoutePrefix = string.Empty;
             });
             app.UseMvc();

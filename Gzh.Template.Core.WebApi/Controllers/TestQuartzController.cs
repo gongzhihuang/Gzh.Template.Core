@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Gzh.Template.Core.Application.IService;
 using Gzh.Template.Core.Application.Jobs;
 using Gzh.Template.Core.Application.RequestDTO;
 using Gzh.Template.Core.Application.Service;
@@ -19,9 +20,9 @@ namespace Gzh.Template.Core.WebApi.Controllers
         private readonly ISchedulerFactory _schedulerFactory;
         private IScheduler _scheduler;
 
-        private readonly HelloJobService _helloJobService;
+        private readonly IHelloJobService _helloJobService;
 
-        public TestQuartzController(ISchedulerFactory schedulerFactory, HelloJobService helloJobService)
+        public TestQuartzController(ISchedulerFactory schedulerFactory, IHelloJobService helloJobService)
         {
             _schedulerFactory = schedulerFactory;
             _helloJobService = helloJobService;

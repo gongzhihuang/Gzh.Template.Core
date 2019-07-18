@@ -2,6 +2,7 @@
 using System.Reflection;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using Gzh.Template.Core.Application.IService;
 using Gzh.Template.Core.Application.Service;
 using Gzh.Template.Core.Repository;
 using Gzh.Template.Core.Repository.DatabaseContext;
@@ -33,9 +34,9 @@ namespace Gzh.Template.Core.Application
 
 
 
-            builder.RegisterType<UserService>();
-            builder.RegisterType<BookService>();
-            builder.RegisterType<HelloJobService>();
+            builder.RegisterType<UserService>().As<IUserService>();
+            builder.RegisterType<BookService>().As<IBookService>();
+            builder.RegisterType<HelloJobService>().As<IHelloJobService>();
 
             //注册app层
             //builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly());

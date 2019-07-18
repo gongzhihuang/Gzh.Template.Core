@@ -18,7 +18,7 @@ namespace Gzh.Template.Core.Application.Service
 
         public Book GetBook()
         {
-            return _baseRepositoryMysql.FindSingle(x=> x.Price == "string");
+            return _baseRepositoryMysql.FindSingle(x => x.Price == "string");
         }
 
         public Book InsertBook(Book book)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Gzh.Template.Core.Application.IService;
 using Gzh.Template.Core.Application.Service;
 using Gzh.Template.Core.Infrastructure;
 using Gzh.Template.Core.Repository.Domain.MysqlEntity;
@@ -14,9 +15,9 @@ namespace Gzh.Template.Core.WebApi.Controllers
     [Route("api/[controller]")]
     public class BooksController : Controller
     {
-        private readonly BookService _bookService;
+        private readonly IBookService _bookService;
 
-        public BooksController(BookService bookService)
+        public BooksController(IBookService bookService)
         {
             _bookService = bookService;
         }
