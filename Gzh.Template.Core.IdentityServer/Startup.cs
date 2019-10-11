@@ -31,7 +31,7 @@ namespace Gzh.Template.Core.IdentityServer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            string userConnectionString = @"Server =122.112.226.36 ; port = 3310; database =TestUser ; uid = root; pwd = galp123456;Charset=utf8;sslmode=none";
+            string userConnectionString = @"Server =localhost ; port = 3310; database =TestUser ; uid = root; pwd = 123456;Charset=utf8;sslmode=none";
             services.AddDbContext<UserDbContext>(options => options.UseMySql(userConnectionString));
 
             /*
@@ -46,7 +46,7 @@ namespace Gzh.Template.Core.IdentityServer
             */
 
 
-            const string connectionString = @"Server =122.112.226.36 ; port = 3310; database =identityserver ; uid = root; pwd = galp123456;Charset=utf8;sslmode=none";
+            const string connectionString = @"Server =localhost ; port = 3310; database =identityserver ; uid = root; pwd = 123456;Charset=utf8;sslmode=none";
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
             services.AddDbContext<ApplicationDbContext>(options =>
